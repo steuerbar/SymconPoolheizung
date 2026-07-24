@@ -1,0 +1,19 @@
+{
+  "elements": [
+    {"type":"Label","caption":"Vorhandene SPS- und Temperaturvariablen auswählen. Das Modul erzeugt keine doppelten Messwerte."},
+    {"type":"SelectVariable","name":"PrimaryPumpID","caption":"Zirkulationspumpe Q1"},
+    {"type":"SelectVariable","name":"SecondaryPumpID","caption":"Poolpumpe Q2"},
+    {"type":"SelectVariable","name":"StartCommandID","caption":"Startimpuls M4"},
+    {"type":"SelectVariable","name":"StopCommandID","caption":"Stoppimpuls M5"},
+    {"type":"SelectVariable","name":"PrimaryFlowID","caption":"Primärkreis Vorlauf"},
+    {"type":"SelectVariable","name":"PrimaryReturnID","caption":"Primärkreis Rücklauf"},
+    {"type":"SelectVariable","name":"SecondaryFlowID","caption":"Sekundärkreis Vorlauf"},
+    {"type":"SelectVariable","name":"SecondaryReturnID","caption":"Sekundärkreis Rücklauf"},
+    {"type":"SelectVariable","name":"DayNightID","caption":"Tag-/Nachtstatus (optional)"}
+  ],
+  "status": [
+    {"code":102,"icon":"active","caption":"Aktiv"},
+    {"code":201,"icon":"error","caption":"Quellvariablen fehlen"},
+    {"code":202,"icon":"error","caption":"Schaltbefehl fehlgeschlagen"}
+  ]
+}
