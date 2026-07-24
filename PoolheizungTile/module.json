@@ -1,0 +1,12 @@
+{
+  "id": "{921E1D64-EA5A-48BA-A61F-EB374610D3F1}",
+  "name": "Poolheizung Kachel",
+  "type": 3,
+  "vendor": "steuerbar",
+  "aliases": ["Poolheizung"],
+  "parentRequirements": [],
+  "childRequirements": [],
+  "implemented": [],
+  "prefix": "PHK",
+  "url": "https://github.com/steuerbar/SymconPoolheizung"
+}
