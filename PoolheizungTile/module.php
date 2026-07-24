@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 class PoolheizungKachel extends IPSModule
 {
-    private const SOURCES = ['PrimaryPumpID','SecondaryPumpID','StartCommandID','StopCommandID','PrimaryFlowID','PrimaryReturnID','SecondaryFlowID','SecondaryReturnID','DayNightID'];
+    private const SOURCES = ['PrimaryPumpID','SecondaryPumpID','StartCommandID','StopCommandID','PrimaryFlowID','PrimaryReturnID','SecondaryFlowID','SecondaryReturnID','DayNightID','WeatherCodeID'];
     private const REQUIRED = ['PrimaryPumpID','SecondaryPumpID','StartCommandID','StopCommandID','PrimaryFlowID','PrimaryReturnID','SecondaryFlowID','SecondaryReturnID'];
 
     public function Create()
     {
         parent::Create();
-        $defaults=['PrimaryPumpID'=>16037,'SecondaryPumpID'=>45308,'StartCommandID'=>20962,'StopCommandID'=>15198,'PrimaryFlowID'=>17966,'PrimaryReturnID'=>38717,'SecondaryFlowID'=>52834,'SecondaryReturnID'=>21448,'DayNightID'=>33580];
+        $defaults=['PrimaryPumpID'=>16037,'SecondaryPumpID'=>45308,'StartCommandID'=>20962,'StopCommandID'=>15198,'PrimaryFlowID'=>17966,'PrimaryReturnID'=>38717,'SecondaryFlowID'=>52834,'SecondaryReturnID'=>21448,'DayNightID'=>33580,'WeatherCodeID'=>55315];
         foreach($defaults as $name=>$id) $this->RegisterPropertyInteger($name,$id);
         $this->RegisterAttributeString('RegisteredSources','[]');
         $this->RegisterVariableBoolean('DataValid','Daten gültig','~Switch',10);
@@ -78,7 +78,7 @@ class PoolheizungKachel extends IPSModule
             'valid'=>(bool)$this->GetValue('DataValid'),'primaryPump'=>$q1,'secondaryPump'=>$q2,
             'primaryFlow'=>(float)$this->Value('PrimaryFlowID',0),'primaryReturn'=>(float)$this->Value('PrimaryReturnID',0),
             'secondaryFlow'=>(float)$this->Value('SecondaryFlowID',0),'secondaryReturn'=>(float)$this->Value('SecondaryReturnID',0),
-            'isDay'=>(bool)$this->Value('DayNightID',true),'running'=>$q1||$q2,
+            'isDay'=>(bool)$this->Value('DayNightID',true),'weatherCode'=>(int)$this->Value('WeatherCodeID',0),'running'=>$q1||$q2,
             'updated'=>(int)$this->GetValue('LastUpdate'),'error'=>(string)$this->GetValue('LastError')
         ],JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP);
     }
