@@ -60,7 +60,7 @@ class PoolheizungKachel extends IPSModule
     {
         return str_replace(
             ['__INITIAL_STATE__','__SOLAR_ASSET__','__POOL_ASSET__'],
-            [$this->StateJSON(),$this->AssetData('solar.png'),$this->AssetData('Pool.png')],
+            [$this->StateJSON(),$this->AssetData('solar-absorber.png'),$this->AssetData('Pool.png')],
             file_get_contents(__DIR__.'/module.html')
         );
     }
