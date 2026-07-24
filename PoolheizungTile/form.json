@@ -9,7 +9,8 @@
     {"type":"SelectVariable","name":"PrimaryReturnID","caption":"Primärkreis Rücklauf"},
     {"type":"SelectVariable","name":"SecondaryFlowID","caption":"Sekundärkreis Vorlauf"},
     {"type":"SelectVariable","name":"SecondaryReturnID","caption":"Sekundärkreis Rücklauf"},
-    {"type":"SelectVariable","name":"DayNightID","caption":"Tag-/Nachtstatus (optional)"}
+    {"type":"SelectVariable","name":"DayNightID","caption":"Tag-/Nachtstatus (optional)"},
+    {"type":"SelectVariable","name":"WeatherCodeID","caption":"Open-Meteo Wettercode (optional)"}
   ],
   "status": [
     {"code":102,"icon":"active","caption":"Aktiv"},
