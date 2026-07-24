@@ -58,7 +58,11 @@ class PoolheizungKachel extends IPSModule
 
     public function GetVisualizationTile()
     {
-        return str_replace('__INITIAL_STATE__',$this->StateJSON(),file_get_contents(__DIR__.'/module.html'));
+        return str_replace(
+            ['__INITIAL_STATE__','__SOLAR_ASSET__','__POOL_ASSET__'],
+            [$this->StateJSON(),$this->AssetData('solar.png'),$this->AssetData('Pool.png')],
+            file_get_contents(__DIR__.'/module.html')
+        );
     }
 
     private function Value(string $property,$fallback=null)
@@ -80,4 +84,10 @@ class PoolheizungKachel extends IPSModule
     }
 
     private function PushTile(): void {$this->UpdateVisualizationValue($this->StateJSON());}
+
+    private function AssetData(string $name): string
+    {
+        $path=__DIR__.'/assets/'.$name;
+        return is_file($path)?'data:image/png;base64,'.base64_encode((string)file_get_contents($path)):'';
+    }
 }
